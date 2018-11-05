@@ -1,0 +1,88 @@
+* {
+    -webkit-transition: margin-left 0.2s ease-in-out;
+    -moz-transition: margin-left 0.2s ease-in-out;
+    -ms-transition: margin-left 0.2s ease-in-out;
+    -o-transition: margin-left 0.2s ease-in-out;
+    transition: margin-left 0.2s ease-in-out;
+}
+
+.home-container {
+    margin-top: 56px;
+    margin-left: 235px;
+    margin-right: 235px;
+    padding: 15px;
+    -ms-overflow-x: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    overflow: hidden;
+}
+
+.img-thumbnail{
+  display: inline-block;
+}
+
+.description-products{
+  height: 50px;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.inline{
+  display: inline;
+}
+
+.collapsed {
+    margin-left: 100px;
+}
+
+@media screen and (max-width: 992px) {
+    .home-container {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+
+    }
+}
+@media print {
+    .home-container {
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+
+    }
+}
+
+.aligncenter{
+  text-align: center;
+}
+
+.buyprod{
+  width:50%;
+  margin-top:15px;
+}
+
+.space{
+  margin-top: 2em;
+  margin-bottom: 5em;
+}
+
+.homeproductcard{
+  margin: 15px;
+}
+
+.container-title{
+  text-align: center;
+}
+
+.title{
+  width: 100%
+}
+
+.mission{
+  text-align: justify;
+  padding-left: 15px;
+  padding-right: 15px;
+  // text-justify: inter-word;
+}

@@ -1,0 +1,56 @@
+<div [@routerTransition]>
+  <app-page-header [heading]="'Products'" [icon]="'fa-edit'"></app-page-header>
+  <div class="row">
+    <div class="col-lg-12">
+      <p *ngFor="let alert of alerts">
+        <ngb-alert [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+      </p>
+    </div>
+    <div class="col-lg-12">
+      <form role="form">
+        <h4>{{pageTitle}}</h4>
+        <div class="form-group has-success">
+          <label class="form-control-label" for="inputProductName">Product Title</label>
+          <input [(ngModel)]="product.title" name="title" type="text" class="form-control form-control-success" id="inputProductName">
+        </div>
+        <div class="form-group has-success">
+          <label class="form-control-label" for="inputProductDescription">Product Description</label>
+          <input [(ngModel)]="product.description" name="description" type="text" class="form-control form-control-success" id="inputProductDescription">
+        </div>
+
+        <label class="form-control-label" for="inputProductPrice">Product Price</label>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputProductPrice"><i class="fa fa-eur"></i></span>
+          </div>
+          <input [(ngModel)]="product.price" name="price" type="number" class="form-control" placeholder="">
+        </div>
+
+        <label class="form-control-label" for="inputProductWeight">Product Weight</label>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputProductWeight"><i class="fa fa-balance-scale"></i></span>
+          </div>
+          <input [(ngModel)]="product.weight" name="weight" type="number" class="form-control" placeholder="">
+        </div>
+
+        <label class="form-control-label" for="inputProductImage">Product Image</label>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="testimage"><i class="fa fa-balance-scale"></i></span>
+          </div>
+          <input [(ngModel)]="product.image" name="image" type="text" class="form-control" placeholder="">
+        </div>
+
+        <!-- <fieldset class="form-group">
+          <label for="productInputFile">Product Image</label>
+          <input [(ngModel)]="product.image" name="image" type="file" class="form-control-file" id="productInputFile">
+        </fieldset> -->
+
+        <button type="button" class="btn btn-lg btn-primary" (click)="saveProduct()" name="button"> {{buttonActions}} </button>
+      </form>
+    </div>
+    <!-- /.row -->
+  </div>
+
+</div>

@@ -1,0 +1,79 @@
+<app-header-home></app-header-home>
+
+<div [@routerTransition]>
+  <!-- <app-page-header [heading]="'Home'" [icon]="'fa-edit'"></app-page-header> -->
+  <div class="home-container">
+    <div class="row">
+      <div class="col-lg-12">
+        <p *ngFor="let alert of alerts">
+          <ngb-alert [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+        </p>
+      </div>
+      <div class="col-lg-12">
+          <div class="row container-title">
+            <h1 class="title">Lorem Ipsum</h1>
+          </div>
+          <div class="row mission">
+            <span >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum justo lorem, ac rhoncus eros consequat ut. Phasellus blandit ultricies ipsum, a elementum ante tempor vel. Donec auctor, lectus id maximus vehicula, diam diam tincidunt justo, ac imperdiet augue ipsum eu libero. Praesent tempor, lorem et varius cursus, orci massa dignissim lacus, id congue tortor sem mollis quam. Aenean at justo sed nulla dignissim interdum. Nunc luctus ultricies metus ac efficitur. Duis elementum leo vel leo accumsan varius.</span>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 col-lg-4" *ngFor="let product of products | truncate" >
+              <div class="card homeproductcard">
+                <img class="img-thumbnail" src="http://placehold.it/400x400" alt="">
+                <!-- {{product.image}} -->
+
+                <div class="card-body" >
+                  <h4 class="card-title">{{product.title}}</h4>
+                  <div class="description-products">
+                    <p class="card-text ">{{product.description }}</p>
+                  </div>
+                    <label class="bold inline">Prezzo (Al Kg): </label>
+                    <p class="card-text inline">{{product.price }}</p> <br>
+                    <label class="bold inline">Quantità Rimasta (Kg): </label>
+                    <p class="card-text inline">{{product.weight}}</p>
+                  <!-- <p class="card-weight">{{product.image}}</p> -->
+                    <div class="col-xs-12 col-sm-12 col-lg-12 aligncenter">
+                      <button type="button" class="btn btn-xs btn-success buyprod" (click)="addToCart(product)" name="button" > Add To Cart </button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row space" *ngIf="this.prodsToBuy.length > 0">
+            <table class="card-body table table-hover">
+                <thead>
+                  <tr>
+                      <th>Titolo</th>
+                      <th>Prezzo</th>
+                      <th>Quantità</th>
+                      <th>Prezzo totale</th>
+                      <th>Rimuovi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let prodToBuy of prodsToBuy">
+                      <td>{{prodToBuy.title}}</td>
+                      <td>{{prodToBuy.price}}</td>
+                      <td> <input type="number" max="{{prodToBuy.weight}}" name="q" value="1" min="0" [(ngModel)]="prodToBuy.quantity"  (ngModelChange)="calculateTot()"> </td>
+                      <td>{{prodToBuy.price * prodToBuy.quantity }}</td>
+                      <td> <button type="button" class="btn btn-xs btn-danger" (click)="deleteProduct(prodToBuy._id)" name="button"> Delete </button> </td>
+                  </tr>
+                  <tr>
+                    <td>Totale</td>
+                    <td></td>
+                    <td></td>
+                    <td>{{tot}}</td>
+                  </tr>
+
+                </tbody>
+            </table>
+            <div class="col-xs-12 col-sm-12 col-lg-12 aligncenter">
+              <button type="button" class="btn btn-xs btn-success" (click)="buy()" name="button"> Buy </button>
+            </div>
+          </div>
+      </div>
+      <!-- /.row -->
+    </div>
+  </div>
+
+</div>

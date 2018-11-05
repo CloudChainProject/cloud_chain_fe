@@ -1,0 +1,27 @@
+<div class="login-page" [@routerTransition]>
+  <div *ngIf="error" class="alert alert-danger">
+      <strong>Wrong</strong>
+  </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img src="assets/images/logo.png" width="150px" class="user-avatar" />
+            <h1>SB Admin BS4 Angular5</h1>
+            <form role="form">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="user.username" name="username" class="form-control input-underline input-lg" id="userName" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="user.email" name="email" class="form-control input-underline input-lg" id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" [(ngModel)]="user.password" name="password" class="form-control input-underline input-lg" id="userPassword" placeholder="Password">
+                    </div>
+                </div>
+                <a class="btn rounded-btn" (click)="onLoggedin()"> Log in </a>
+                <!-- &nbsp; -->
+                <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>
+            </form>
+        </div>
+    </div>
+</div>
