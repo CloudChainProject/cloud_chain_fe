@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {HomeComponent} from './home.component';
+import {UploadComponent} from './upload.component';
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent
+    path:'', component: UploadComponent
   }
 ];
 
@@ -13,6 +13,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class HomeRoutingModule {
+export class UploadRoutingModule{
 
 }

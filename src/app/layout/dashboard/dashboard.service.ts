@@ -12,18 +12,12 @@ import {  throwError } from 'rxjs';
 })
 
 export class DashboardService {
-  productUrl = 'http://localhost:3000/ap1/v1/product';
+  productUrl = 'http://localhost:3008/showMyBlocks';
 
   constructor (private http:HttpClient){}
 
-  getNumberOfProducts():Observable<any>{
-    return this.http.get(`${this.productUrl}/count`).pipe(map((res) => {
-      return res//.json();
-    })).pipe(catchError(this.handleError))
-  }
-
-  getNumberOfOrders():Observable<any>{
-    return this.http.get(`${this.productUrl}/order/count`).pipe(map((res) => {
+  getFilesTeammember(teammember):Observable<any>{
+    return this.http.get(`${this.productUrl}/${teammember}`).pipe(map((res) => {
       return res//.json();
     })).pipe(catchError(this.handleError))
   }

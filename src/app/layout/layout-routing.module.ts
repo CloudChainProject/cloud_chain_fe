@@ -9,9 +9,7 @@ const routes: Routes = [
         children: [
             // { path: '', redirectTo: 'home', pathMatch: 'prefix' },
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
-            { path: 'product/create', loadChildren: './product/products/products.module#ProductsModule' },
-            { path: 'product/edit/:id', loadChildren: './product/products/products.module#ProductsModule' },
-            { path: 'product/list', loadChildren: './product/products_list/products_list.module#ProductsListModule' },
+            { path: 'upload', loadChildren: './upload/upload.module#UploadModule' }
         ]
     }
 ];
