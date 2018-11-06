@@ -28,7 +28,9 @@ export class LoginComponent {
     onLoggedin() {
       this.error = false;
       return this.loginService.getToken(this.user).subscribe((status)=>{
+        console.log(status)
         localStorage.setItem('isLoggedin', 'true');
+        localStorage.setItem('name', status['name']);
         localStorage.setItem('token', status['token']);
         return this.router.navigateByUrl('/admin');
       }, (err)=>{

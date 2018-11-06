@@ -4,11 +4,11 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'prefix' },
+    { path: '', redirectTo: 'admin', pathMatch: 'prefix' },
     { path: 'admin', redirectTo: 'admin/dashboard', canActivate: [AuthGuard]},
     { path: 'admin', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard]},
     { path: 'login', loadChildren: './login/login.module#LoginModule' },
-    { path: 'home', loadChildren: './home/home.module#HomeModule' },
+    // { path: 'home', loadChildren: './home/home.module#HomeModule' },
     { path: 'signup', loadChildren: './signup/signup.module#SignupModule' },
     { path: 'error', loadChildren: './server-error/server-error.module#ServerErrorModule' },
     { path: 'access-denied', loadChildren: './access-denied/access-denied.module#AccessDeniedModule' },

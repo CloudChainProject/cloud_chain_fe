@@ -11,33 +11,23 @@ import { DashboardService } from './dashboard.service';
 
 })
 export class DashboardComponent implements OnInit {
-  public productCounter = null;
-  public orderCounter = null;
+  public files = null;
+
   alerts: Array<any> = [];
 
 
   constructor(private dashboardService:DashboardService) {}
 
   ngOnInit() {
-    this.getTotProducts();
-    this.getTotOrders();
+    this.getFiles();
   }
 
-  getTotProducts = ()=>{
-    return this.dashboardService.getNumberOfProducts().subscribe((response)=>{
-      return this.productCounter = response['products'];
+  getFiles = ()=>{
+    var name = localStorage.getItem('name');
+    return this.dashboardService.getFilesTeammember(name).subscribe((response)=>{
+      return this.files = response['files'];
     }, (err)=>{
       return this.alerts.push({ id: 4, type: 'danger', message: `Error: ${err.message}`});
     })
   }
-
-  getTotOrders = ()=>{
-    return this.dashboardService.getNumberOfOrders().subscribe((response)=>{
-      console.log(response)
-      return this.orderCounter = response['orders'];
-    }, (err)=>{
-      return this.alerts.push({ id: 4, type: 'danger', message: `Error: ${err.message}`});
-    })
-  }
-
 }
